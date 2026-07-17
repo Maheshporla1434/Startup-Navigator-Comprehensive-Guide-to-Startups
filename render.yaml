@@ -5,7 +5,7 @@ services:
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: python -m app.seed && uvicorn app.main:app --host 0.0.0.0 --port $PORT
-    rootDirectory: backend
+    rootDir: backend
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -26,7 +26,7 @@ services:
     env: node
     buildCommand: npm install && npm run build
     startCommand: npm run start
-    rootDirectory: frontend
+    rootDir: frontend
     envVars:
       - key: NEXT_PUBLIC_API_URL
         sync: false # Will prompt you to enter: https://<your-backend-url>.onrender.com/api
