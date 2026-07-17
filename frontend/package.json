@@ -1,0 +1,33 @@
+{
+  "name": "startup-navigator-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "15.1.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "axios": "^1.6.8",
+    "@tanstack/react-query": "^5.28.0",
+    "lucide-react": "^0.359.0",
+    "framer-motion": "^11.0.0",
+    "react-hook-form": "^7.51.0",
+    "zod": "^3.22.4",
+    "@hookform/resolvers": "^3.3.4",
+    "recharts": "^2.12.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.11.24",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "autoprefixer": "^10.4.18"
+  }
+}

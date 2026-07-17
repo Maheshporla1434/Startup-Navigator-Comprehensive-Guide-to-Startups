@@ -1,0 +1,36 @@
+services:
+  # Backend Web Service (FastAPI)
+  - type: web
+    name: startup-navigator-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m app.seed && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    rootDirectory: backend
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: startup-navigator-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: AI_PROVIDER
+        value: gemini
+      - key: GEMINI_API_KEY
+        sync: false # Will prompt you to enter this in Render
+      - key: OPENAI_API_KEY
+        sync: false # Will prompt you to enter this in Render (optional)
+
+  # Frontend Web Service (Next.js)
+  - type: web
+    name: startup-navigator-frontend
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    rootDirectory: frontend
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        sync: false # Will prompt you to enter: https://<your-backend-url>.onrender.com/api
+
+databases:
+  - name: startup-navigator-db
+    plan: free
