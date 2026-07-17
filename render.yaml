@@ -29,6 +29,8 @@ services:
     startCommand: npm run start
     rootDir: frontend
     envVars:
+      - key: NODE_VERSION
+        value: "20"
       - key: NEXT_PUBLIC_API_URL
         sync: false # Will prompt you to enter: https://<your-backend-url>.onrender.com/api
 
